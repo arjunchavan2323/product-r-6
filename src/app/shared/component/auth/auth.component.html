@@ -1,0 +1,68 @@
+<div class="mainauth">
+      <ng-container *ngIf="AllreadyHaveaccount">
+                  <form [formGroup]="loginform" (ngSubmit)="onsubmit()">
+                    
+                     <div class="card">
+                    <div class="card-body">
+                         <h1>LogIn</h1>
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="text" class="form-control" formControlName="email">
+                        </div>
+
+                         <div class="form-group">
+                            <label for="password">password</label>
+                            <input type="text" class="form-control" formControlName="password">
+                        </div>
+
+                      
+                          <button class="form-control" mat-raised-button color="primary" >LogIn</button>
+                         
+                           <p >
+                       <a href="javascript:;" (click)="AllreadyHaveaccount=false">Dont have Account</a>
+
+                      </p>
+                    </div>
+                  </div>
+                
+                 </form>
+      </ng-container>
+      <ng-container *ngIf="!AllreadyHaveaccount">
+                 <form [formGroup]="signupform" (ngSubmit)="onsiup()">
+                    
+                     <div class="card">
+                    <div class="card-body">
+                         <h1>Sign Up</h1>
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="text" class="form-control" formControlName="email">
+                        </div>
+
+                         <div class="form-group">
+                            <label for="password">password</label>
+                            <input type="text" class="form-control" formControlName="password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">select userRole</label>
+                            <select name="" id="" formControlName="userRole" class="form-control">
+                                <option value="admin">Admin</option>
+                                <option value="buyer">Buyer</option>
+                                <option value="superAdmin">superAdmin</option>
+
+                            </select>
+                        </div>
+                          <button class="form-control" mat-raised-button color="primary" >Signup</button>
+                 
+                      <p >
+                       <a href="javascript:;" (click)="AllreadyHaveaccount=true">All Ready have account</a>
+
+                      </p>
+                    
+                    </div>
+                  </div>
+                
+                 </form>
+      </ng-container>
+
+</div>

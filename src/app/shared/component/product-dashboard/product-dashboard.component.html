@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12 text-right">
+        <button mat-raised-button color="primary" routerLink="addproduct">Add product</button>
+    </div>
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between"
+             *ngFor="let proud of productArr;TrackBy : trackp"
+             routerLinkActive="active"
+             [routerLink]="proud.productId"
+             [queryParams]="{cr:proud.stockAvailable}"
+             >
+               
+                {{proud.productName}}
+
+                 <strong
+                 class="badge-2px"
+                 [ngClass]="{
+                    'bg-success':proud.orderStatus==='Inprogress',
+                    'badge-danger':proud.orderStatus==='Dispatch',
+                    'badge-warning':proud.orderStatus==='Delivered'
+
+                 }"
+                 >{{proud.orderStatus|titlecase}}</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

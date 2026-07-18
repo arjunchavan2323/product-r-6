@@ -1,0 +1,27 @@
+<div class="fair">
+    <figure class="banner"
+    [ngStyle]="{
+        'background-image':'linear-gradient(0deg, #000 10%, transparent), url(' +fairobject.bannerUrl+')'
+    }">
+        <figcaption>
+              <h1 class="m-0">{{fairobject.fairName}}</h1>
+            <div class="typeAndDate">
+                <p class="mr-0">
+                    {{fairobject.type}}
+                </p>
+                <p class="mr-0">
+                    Event Type:{{fairobject.type}}
+                </p>
+
+                  <p class="mr-0">
+                    Date:{{(fairobject.startDate * 1000)|date}}
+                </p>
+            </div>
+        </figcaption>
+    </figure>
+    <div class="p-4">
+        <p [innerHTML]="fairobject.candidateDescription"></p>
+        <p [innerHTML]="fairobject.schoolDescription"></p>
+
+    </div>
+</div>
