@@ -31,27 +31,7 @@ disableupdatebtn:boolean=false
  this.addcontrol()
 this.permananthandler()
 this.isaddsamehandler()
-this.userid=this._routes.snapshot.paramMap.get('id')!
-if(this.userid){
-  this._userservice.fetchById(this.userid)
-  .subscribe({
-    next:data=> {
-      this.isineditmode=true
-      this.userdetail=data;
-      
-      this.userForm.patchValue(data)
-
-      this._utilityservice.formaddcntrlpatchcntrl(data.skills, this.skillformArr)
-      this.formcontrol['address'].get('current')?.valid
-      this.formcontrol['isAddSame'].enable()
-      this.formcontrol['address'].get('permanent')?.patchValue(this.userdetail.address.permanent)
-
-    },error:err=> {
-      console.log(err);
-      
-    }
-  })
-}
+this. patchvalue()
 
 // this._routes.queryParams
 // .subscribe(res => {
@@ -77,6 +57,31 @@ this._routes.queryParams
 })
 
 
+  }
+
+
+  patchvalue(){
+    this.userid=this._routes.snapshot.paramMap.get('id')!
+if(this.userid){
+  this._userservice.fetchById(this.userid)
+  .subscribe({
+    next:data=> {
+      this.isineditmode=true
+      this.userdetail=data;
+      
+      this.userForm.patchValue(data)
+
+      this._utilityservice.formaddcntrlpatchcntrl(data.skills, this.skillformArr)
+      this.formcontrol['address'].get('current')?.valid
+      this.formcontrol['isAddSame'].enable()
+      this.formcontrol['address'].get('permanent')?.patchValue(this.userdetail.address.permanent)
+
+    },error:err=> {
+      console.log(err);
+      
+    }
+  })
+}
   }
 
   isaddsamehandler(){
