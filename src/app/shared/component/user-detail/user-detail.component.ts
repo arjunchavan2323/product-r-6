@@ -70,11 +70,12 @@ this._userservice.FetchUser()
      
       this._snackbar.opensnackbar(data.msg)
     this._router.navigate(['/user',this.userArr[0].userId],
-      {
-        queryParams:{
-          cr:this.userArr[0].userRole
-        }
+     {
+      queryParams:{
+        cr:this.userArr[0].userRole
       }
+     }
+      
     )
     }
    })

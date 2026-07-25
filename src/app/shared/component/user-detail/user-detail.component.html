@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="userArr.length > 0; else nouser">
     <div class="col-md-4">
     <mat-card class="mt-2">
         <img mat-card-image [src]="userObject.profileImage" [alt]="userObject.userName" [title]="userObject.userName">
@@ -16,8 +16,9 @@
          </p>
 
          <mat-card-actions class="d-flex justify-content-between"
-         (click)="oneditform()">
-            <button mat-raised-button color="primary">
+       >
+            <button mat-raised-button color="primary" 
+              (click)="oneditform()">
                 <mat-icon>edit</mat-icon>
             </button>
             <button mat-raised-button color="warn" (click)="onremove(userObject.userId)">
@@ -78,3 +79,9 @@
         </mat-card>
     </div>
 </div>
+
+<ng-template #nouser>
+    <p class="alert alert-info">
+        NO data found for the data base
+    </p>
+</ng-template>
