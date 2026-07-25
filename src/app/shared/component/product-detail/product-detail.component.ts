@@ -65,7 +65,13 @@ productArr!:Array<iproduct>
     .subscribe({
       next:data=> {
         this._snackbar.opensnackbar(data.msg)
-        this._router.navigate(['/product',this.productArr[0].productId])
+        this._router.navigate(['/product',this.productArr[0].productId],
+          {
+            queryParams:{
+              cr:this.productArr[0].stockAvailable
+            }
+          }
+        )
       },
       error:err=>{
         this._snackbar.opensnackbar(err)

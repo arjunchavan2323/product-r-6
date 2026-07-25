@@ -22,6 +22,7 @@ userArr!:Array<Iuser>
     .subscribe(res => {
       this.userObject=res['user']
       this.userId=this.userObject.userId
+     
       
     })
   }
@@ -68,7 +69,13 @@ this._userservice.FetchUser()
     next:data=>{
      
       this._snackbar.opensnackbar(data.msg)
-    this._router.navigate(['/user', this.userArr[0].userId])
+    this._router.navigate(['/user',this.userArr[0].userId],
+      {
+        queryParams:{
+          cr:this.userArr[0].userRole
+        }
+      }
+    )
     }
    })
   }

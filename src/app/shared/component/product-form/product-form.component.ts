@@ -42,7 +42,13 @@ this.patchproduct()
           this.productform.reset()
           this.iseditmode=false
           this._snackbar.opensnackbar(data.msg)
-          this._router.navigate(['/product', this.productid])
+          this._router.navigate(['/product', this.productid],
+            {
+              queryParams:{
+                cr:this.productdetail.stockAvailable
+              }
+            }
+          )
         },
         error:err=>{
           this._snackbar.opensnackbar(err)
@@ -107,7 +113,13 @@ this.patchproduct()
       .subscribe({
         next:data=> {
           this._snackbar.opensnackbar(data)
-          this._router.navigate(['/product',new_product.productId])
+          this._router.navigate(['/product',new_product.productId],
+            {
+              queryParams:{
+                cr:this.productdetail.stockAvailable
+              }
+            }
+          )
         }
       })
     }

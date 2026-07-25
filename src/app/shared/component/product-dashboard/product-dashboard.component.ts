@@ -15,7 +15,14 @@ productArr!:Array<iproduct>
     private _routes : ActivatedRoute
   ) {
     this.productArr=this._routes.snapshot.data['product']
-     this._router.navigate(['/product', this.productArr[0].productId])
+     this._router.navigate(['/product', this.productArr[0].productId],
+      {
+        queryParams:{
+          cr:this.productArr[0].stockAvailable
+        }
+      }
+     )
+
    }
 
   ngOnInit(): void {

@@ -193,7 +193,13 @@ address:new FormGroup({
           this.userForm.reset()
           this.isineditmode=false
           this._snackbar.opensnackbar(data.msg)
-       this._router.navigate(['/user',updated_user.userId])
+       this._router.navigate(['/user',updated_user.userId],{
+        queryParams:{
+          cr:this.userdetail.userRole
+        }
+       }
+        
+       )
         },
         error:err=> {
           this._snackbar.opensnackbar(err)

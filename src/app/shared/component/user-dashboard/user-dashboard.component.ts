@@ -25,6 +25,14 @@ userArr!:Array<Iuser>
     private _routes : ActivatedRoute
   ) { 
     this.userArr=this._routes.snapshot.data['user']
+   this._router.navigate(['/user', this.userArr[0].userId],{
+    queryParams:{
+      cr:this.userArr[0].userRole
+    }
+   })
+
+      
+    
   }
 
   ngOnInit(): void {
